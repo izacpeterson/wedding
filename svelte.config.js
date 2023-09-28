@@ -1,5 +1,6 @@
 // import adapter from '@sveltejs/adapter-auto';
 import adapter from "@sveltejs/adapter-netlify";
+import { vitePreprocess } from "@sveltejs/kit/vite";
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   kit: {
@@ -8,6 +9,7 @@ const config = {
     // See https://kit.svelte.dev/docs/adapters for more information about adapters.
     adapter: adapter(),
   },
+  preprocess: vitePreprocess(),
 };
 
 export default config;
