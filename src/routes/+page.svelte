@@ -1,23 +1,30 @@
 <script>
   import Upload from "$lib/upload.svelte";
+  import AddNote from "$lib/AddNote.svelte";
+
   import { onMount } from "svelte";
 
   let showUpload = false;
+  let showNote = false;
 
-  onMount(() => {
-    var data = {
-      content: "New Visitor on Wedding " + new Date().toLocaleTimeString(),
-    };
-    var options = {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    };
-    fetch("https://discordapp.com/api/webhooks/770724245214986261/qQTsNZsFXoiRopoc6EB3p0Ixt7427RkLd-BB_Cf4xKcWoOhFmvV1__2wJu590gkEAwmz", options);
-  });
+  // onMount(() => {
+  //   var data = {
+  //     content: "New Visitor on Wedding " + new Date().toLocaleTimeString(),
+  //   };
+  //   var options = {
+  //     method: "post",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(data),
+  //   };
+  //   fetch("https://discordapp.com/api/webhooks/770724245214986261/qQTsNZsFXoiRopoc6EB3p0Ixt7427RkLd-BB_Cf4xKcWoOhFmvV1__2wJu590gkEAwmz", options);
+  // });
 </script>
+
+{#if showNote}
+  <AddNote />
+{/if}
 
 {#if showUpload}
   <Upload />
@@ -41,4 +48,9 @@
     <h2 class="text-xl">Have a great picture of us? Feel free to share!</h2>
     <button on:click={() => (showUpload = !showUpload)} class="bg-green-900 mt-2 p-2 rounded text-white">Upload Pictures</button>
   </div> -->
+
+  <div class="flex flex-col items-center">
+    <h2 class="text-xl">Leave us a note, advice, or kind message</h2>
+    <button on:click={() => (showNote = !showNote)} class="bg-green-900 mt-2 p-2 rounded text-white">Click me!</button>
+  </div>
 </main>
