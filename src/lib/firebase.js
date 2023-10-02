@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,6 +18,7 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+export const storage = getStorage(app);
 
 // function to add a note to the db, takes name and text as arguments
 export async function addGuest(name, text) {
@@ -47,4 +49,12 @@ function notify(msg) {
     body: JSON.stringify(data),
   };
   fetch("https://discordapp.com/api/webhooks/770724245214986261/qQTsNZsFXoiRopoc6EB3p0Ixt7427RkLd-BB_Cf4xKcWoOhFmvV1__2wJu590gkEAwmz", options);
+}
+
+export async function uploadImage(file) {
+  return new Promise(async (resolve, reject) => {
+    const storageRef = ref(storage, "images/" + file.name);
+    await uploadBytes(storageRef, file);
+    resolve();
+  });
 }
