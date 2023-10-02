@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -56,5 +56,14 @@ export async function uploadImage(file) {
     const storageRef = ref(storage, "images/" + file.name);
     await uploadBytes(storageRef, file);
     resolve();
+  });
+}
+
+export async function getNotes() {
+  return new Promise(async (resolve, reject) => {
+    const notesCol = collection(db, "guestbook");
+    const notesSnapshot = await getDocs(notesCol);
+    const notesList = notesSnapshot.docs.map((doc) => doc.data());
+    resolve(notesList);
   });
 }
