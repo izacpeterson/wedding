@@ -76,6 +76,7 @@ export async function logVisitor() {
     const visitorCol = collection(db, "visitors");
     await addDoc(visitorCol, {
       time: Date.now(),
+      timestring: new Date().toLocaleString(),
       ip: data.ip,
       city: data.city,
       region: data.region,
