@@ -67,3 +67,20 @@ export async function getNotes() {
     resolve(notesList);
   });
 }
+
+export async function logVisitor() {
+  return new Promise(async (resolve, reject) => {
+    let raw = await fetch("https://ipapi.co/json/");
+    let data = await raw.json();
+
+    const visitorCol = collection(db, "visitors");
+    await addDoc(visitorCol, {
+      time: Date.now(),
+      ip: data.ip,
+      city: data.city,
+      region: data.region,
+      country: data.country,
+    });
+    resolve();
+  });
+}

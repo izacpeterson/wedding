@@ -3,12 +3,15 @@
   import AddNote from "$lib/AddNote.svelte";
   import AddFile from "$lib/AddFile.svelte";
 
+  import { logVisitor } from "$lib/firebase.js";
+
   import { onMount } from "svelte";
 
   let showUpload = false;
   let showNote = false;
 
   onMount(() => {
+    logVisitor();
     var data = {
       content: "New Visitor on Wedding " + new Date().toLocaleTimeString(),
     };
