@@ -35,14 +35,14 @@
 {/if}
 
 <main class="flex flex-col items-center text-center">
-  <div class="flex flex-col items-center p-8">
+  <div class="flex flex-col items-center p-2">
     <h2 class="text-xl">Wedding Reception:</h2>
     <h4>October 16th, 2023</h4>
     <h4>6pm - 8pm</h4>
     <h4>50 West 500 North, Lehi, Utah</h4>
   </div>
   <!-- <a href="/rsvp" class="bg-green-900 p-2 rounded text-white">Let us know you're coming!</a> -->
-  <ul class="flex flex-col items-center p-8">
+  <ul class="flex flex-col items-center p-2">
     <h2 class="text-xl">Links:</h2>
     <li class="text-green-800 m-2"><a href="https://www.amazon.com/wedding/share/rachelizac">Amazon Registry</a></li>
     <li class="text-green-800 m-2"><a href="https://www.google.com/maps/place/50+W+500+N,+Lehi,+UT+84043/@40.3939417,-111.8528229,17z/data=!3m1!4b1!4m5!3m4!1s0x874d802ca4b10763:0xcd3c5c7f3b48a412!8m2!3d40.3939376!4d-111.850248?entry=ttu">Reception Location</a></li>
