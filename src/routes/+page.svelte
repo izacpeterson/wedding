@@ -22,7 +22,7 @@
       },
       body: JSON.stringify(data),
     };
-    fetch("https://discordapp.com/api/webhooks/770724245214986261/qQTsNZsFXoiRopoc6EB3p0Ixt7427RkLd-BB_Cf4xKcWoOhFmvV1__2wJu590gkEAwmz", options);
+    // fetch("https://discordapp.com/api/webhooks/770724245214986261/qQTsNZsFXoiRopoc6EB3p0Ixt7427RkLd-BB_Cf4xKcWoOhFmvV1__2wJu590gkEAwmz", options);
   });
 </script>
 
@@ -44,8 +44,9 @@
   <!-- <a href="/rsvp" class="bg-green-900 p-2 rounded text-white">Let us know you're coming!</a> -->
   <ul class="flex flex-col items-center p-8">
     <h2 class="text-xl">Links:</h2>
-    <li class="text-green-800"><a href="https://www.amazon.com/wedding/share/rachelizac">Amazon Registry</a></li>
-    <li class="text-green-800"><a href="https://www.google.com/maps/place/50+W+500+N,+Lehi,+UT+84043/@40.3939417,-111.8528229,17z/data=!3m1!4b1!4m5!3m4!1s0x874d802ca4b10763:0xcd3c5c7f3b48a412!8m2!3d40.3939376!4d-111.850248?entry=ttu">Reception Location</a></li>
+    <li class="text-green-800 m-2"><a href="https://www.amazon.com/wedding/share/rachelizac">Amazon Registry</a></li>
+    <li class="text-green-800 m-2"><a href="https://www.google.com/maps/place/50+W+500+N,+Lehi,+UT+84043/@40.3939417,-111.8528229,17z/data=!3m1!4b1!4m5!3m4!1s0x874d802ca4b10763:0xcd3c5c7f3b48a412!8m2!3d40.3939376!4d-111.850248?entry=ttu">Reception Location</a></li>
+    <li class="text-green-800 m-2"><a href="https://account.venmo.com/u/Izac-Peterson">Venmo</a></li>
   </ul>
 
   <div class="flex flex-col items-center">
