@@ -85,3 +85,12 @@ export async function logVisitor() {
     resolve();
   });
 }
+
+export async function getVisitors() {
+  return new Promise(async (resolve, reject) => {
+    const visitorCol = collection(db, "visitors");
+    const visitorSnapshot = await getDocs(visitorCol);
+    const visitorList = visitorSnapshot.docs.map((doc) => doc.data());
+    resolve(visitorList);
+  });
+}
