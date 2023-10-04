@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { getStorage, ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -92,5 +92,18 @@ export async function getVisitors() {
     const visitorSnapshot = await getDocs(visitorCol);
     const visitorList = visitorSnapshot.docs.map((doc) => doc.data());
     resolve(visitorList);
+  });
+}
+
+export async function getImages(folder) {
+  return new Promise(async (resolve, reject) => {
+    const storageRef = ref(storage, `${folder}/`);
+    const listResult = await listAll(storageRef);
+    const urlList = [];
+    for (const item of listResult.items) {
+      const url = await getDownloadURL(item);
+      urlList.push(url);
+    }
+    resolve(urlList);
   });
 }
