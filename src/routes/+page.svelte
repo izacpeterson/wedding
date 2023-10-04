@@ -93,4 +93,6 @@
     <h2 class="text-lg">Leave us a note, advice, or kind message</h2>
     <button on:click={() => (showNote = !showNote)} class="bg-green-900 mt-2 p-2 rounded text-white">Click me!</button>
   </div>
+
+  <a href="/admin" class="fixed bottom-0 left-0 text-white">adm</a>
 </main>
