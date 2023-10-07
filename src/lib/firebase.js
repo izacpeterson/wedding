@@ -86,11 +86,32 @@ export async function logVisitor() {
   });
 }
 
+export async function fakeLogVisitor() {
+  return new Promise(async (resolve, reject) => {
+    const visitorCol = collection(db, "visitors");
+    await addDoc(visitorCol, {
+      time: Date.now(),
+      timestring: new Date().toLocaleString(),
+      ip: "",
+      city: "Forest City",
+      region: "North Carolina",
+      country: "US",
+    });
+    resolve();
+  });
+}
+
+// fakeLogVisitor();
+
 export async function getVisitors() {
   return new Promise(async (resolve, reject) => {
     const visitorCol = collection(db, "visitors");
     const visitorSnapshot = await getDocs(visitorCol);
     const visitorList = visitorSnapshot.docs.map((doc) => doc.data());
+    // sort list by datetime
+    visitorList.sort((a, b) => {
+      return b.time - a.time;
+    });
     resolve(visitorList);
   });
 }
